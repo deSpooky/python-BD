@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}
+fav songs :3
+{% endblock %}
+
+{% block content %}
+<h1 class="mb-5">favorite songs ★🎸🎧⋆｡ °⋆</h1>
+
+<div class="card-columns">
+  <div class="row">
+  {% for song in songs %}
+    <div class="col-md-3">
+      <div class="card mb-3">
+          <div class="card-header fw-bold">{{ song.title }}</div>
+          <div class="card-body">
+              <p class="badge bg-primary text-wrap">{{ song.album.artist.name }}</p>
+              <p class="card-text">Album: 
+              <strong>{{ song.album.title }}</strong></p>
+              <p class="card-text">Length: {{ song.length }}</p>
+              <p class="card-text">Track number: {{ song.track_number }}</p>
+              <p class="card-text">Release date: {{ song.album.year }}</p>
+          </div>
+      </div>
+    </div>
+  {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
